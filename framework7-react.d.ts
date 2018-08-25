@@ -269,7 +269,8 @@ declare module "framework7-react" {
             target?: string;
         } &
         Flag<"noFastClick" | "noFastclick" | "tabLinkActive"> &
-        LinkRouterProps & LinkActionsProps
+        LinkRouterProps & LinkActionsProps &
+        OnClick
     > { }
     export class F7ListGroup extends _BasicComponent<Flag<"mediaList" | "sortable">> { }
     export class F7ListIndex extends _BasicComponent<
