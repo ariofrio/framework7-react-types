@@ -23,6 +23,11 @@ declare module "framework7-react" {
         themeDark?: boolean;
     }
 
+    export interface CustomStyleProps {
+        className?: string;
+        style?: React.CSSProperties;
+    }
+    
     export interface LinkIconProps {
         icon?: string;
         iconMaterial?: string;
@@ -96,7 +101,7 @@ declare module "framework7-react" {
         [name: string]: any;
     }
 
-    export interface BasicProps extends IdProps, ColorProps { }
+    export interface BasicProps extends IdProps, ColorProps, CustomStyleProps { }
 
     export class _BasicComponent<P = {}> extends React.Component<BasicProps & P> { }
 
