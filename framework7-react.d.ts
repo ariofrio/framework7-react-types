@@ -1,4 +1,7 @@
+/// <reference path="framework7.d.ts" />
+
 declare module "framework7-react" {
+    import { Framework7Plugin } from "framework7";
     import * as React from "react";
 
     export type strnum = string | number;
@@ -519,11 +522,7 @@ declare module "framework7-react" {
     export const View: typeof F7View;
     export const Views: typeof F7Views;
 
-    export interface Plugin {
-        name: string;
-        install(params: any): void;
-    }
-    const Framework7React: Plugin;
+    const Framework7React: Framework7Plugin;
 
     export default Framework7React;
 }
