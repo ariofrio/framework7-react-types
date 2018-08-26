@@ -1442,16 +1442,18 @@ declare module "framework7" {
 
 
         // Overlays
-        alert(text: string, callbackOk?: () => void): HTMLElement;
-        alert(text: string, title?: string, callbackOk?: () => void): HTMLElement;
-        confirm(text: string, callbackOk?: () => void, callbackCancel?: () => void): HTMLElement;
-        confirm(text: string, title?: string, callbackOk?: () => void, callbackCancel?: () => void): HTMLElement;
-        prompt(text: string, callbackOk?: (input: string) => void, callbackCancel?: (input: string) => void): HTMLElement;
-        prompt(text: string, title?: string, callbackOk?: (input: string) => void, callbackCancel?: (input: string) => void): HTMLElement;
-        modalLogin(text: string, callbackOk?: (username: string, password: string) => void, callbackCancel?: (username: string, password: string) => void): HTMLElement;
-        modalLogin(text: string, title?: string, callbackOk?: (username: string, password: string) => void, callbackCancel?: (username: string, password: string) => void): HTMLElement;
-        modalPassword(text: string, callbackOk?: (password: string) => void, callbackCancel?: (password: string) => void): HTMLElement;
-        modalPassword(text: string, title?: string, callbackOk?: (password: string) => void, callbackCancel?: (password: string) => void): HTMLElement;
+        dialog: {
+            alert(text: string, callbackOk?: () => void): HTMLElement;
+            alert(text: string, title?: string, callbackOk?: () => void): HTMLElement;
+            confirm(text: string, callbackOk?: () => void, callbackCancel?: () => void): HTMLElement;
+            confirm(text: string, title?: string, callbackOk?: () => void, callbackCancel?: () => void): HTMLElement;
+            prompt(text: string, callbackOk?: (input: string) => void, callbackCancel?: (input: string) => void): HTMLElement;
+            prompt(text: string, title?: string, callbackOk?: (input: string) => void, callbackCancel?: (input: string) => void): HTMLElement;
+            login(text: string, callbackOk?: (username: string, password: string) => void, callbackCancel?: (username: string, password: string) => void): HTMLElement;
+            login(text: string, title?: string, callbackOk?: (username: string, password: string) => void, callbackCancel?: (username: string, password: string) => void): HTMLElement;
+            password(text: string, callbackOk?: (password: string) => void, callbackCancel?: (password: string) => void): HTMLElement;
+            password(text: string, title?: string, callbackOk?: (password: string) => void, callbackCancel?: (password: string) => void): HTMLElement;
+        };
         showPreloader(title: string): void;
         hidePreloader(): void;
         showIndicator(): void;
