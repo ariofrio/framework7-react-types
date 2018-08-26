@@ -1,5 +1,11 @@
 /// <reference path="framework7.d.ts" />
 
+declare namespace JSX {
+    interface IntrinsicAttributes {
+        slot?: string
+    }
+}
+
 declare module "framework7-react" {
     import { Framework7Plugin } from "framework7";
     import * as React from "react";
