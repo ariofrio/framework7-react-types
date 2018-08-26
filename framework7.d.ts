@@ -1372,6 +1372,30 @@ declare module "framework7" {
 
     export const Device: Device;
 
+
+    export interface Dialog extends EventManagement<"open" | "opened" | "close" | "closed" | "beforeDestroy"> {
+        /** Open dialog. Where
+         * animate - boolean (by default true) - defines whether it should be opened with animation */
+        open: (animate?: boolean) => void
+        /** Close dialog. Where
+         * animate - boolean (by default true) - defines whether it should be closed with animation */
+        close: (animate?: boolean) => void
+        /** Sets dialog progress when Dialog Progress shortcut in use
+         * 
+         * progress - number - progressbar progress (from 0 to 100)
+         * duration - number (in ms) - progressbar progress change duration
+        */
+        setProgress: (progress: number, duration: number) => void
+        /** Sets dialog's title
+         * title - string - new dialog title */
+        setTitle: (title: string) => void
+        /** Sets dialog's text
+         * title - string - new dialog text */
+        setText: (text: string)	=> void
+        /** Destroy dialog */
+        destroy: () => void
+    }
+
     export interface Framework7Plugin {
         /** Module Name */
         name: string,
@@ -1443,16 +1467,25 @@ declare module "framework7" {
 
         // Overlays
         dialog: {
-            alert(text: string, callbackOk?: () => void): HTMLElement;
-            alert(text: string, title?: string, callbackOk?: () => void): HTMLElement;
-            confirm(text: string, callbackOk?: () => void, callbackCancel?: () => void): HTMLElement;
-            confirm(text: string, title?: string, callbackOk?: () => void, callbackCancel?: () => void): HTMLElement;
-            prompt(text: string, callbackOk?: (input: string) => void, callbackCancel?: (input: string) => void): HTMLElement;
-            prompt(text: string, title?: string, callbackOk?: (input: string) => void, callbackCancel?: (input: string) => void): HTMLElement;
-            login(text: string, callbackOk?: (username: string, password: string) => void, callbackCancel?: (username: string, password: string) => void): HTMLElement;
-            login(text: string, title?: string, callbackOk?: (username: string, password: string) => void, callbackCancel?: (username: string, password: string) => void): HTMLElement;
-            password(text: string, callbackOk?: (password: string) => void, callbackCancel?: (password: string) => void): HTMLElement;
-            password(text: string, title?: string, callbackOk?: (password: string) => void, callbackCancel?: (password: string) => void): HTMLElement;
+            alert(text: string, callbackOk?: () => void): Dialog;
+            alert(text: string, title?: string, callbackOk?: () => void): Dialog;
+            confirm(text: string, callbackOk?: () => void, callbackCancel?: () => void): Dialog;
+            confirm(text: string, title?: string, callbackOk?: () => void, callbackCancel?: () => void): Dialog;
+            prompt(text: string, callbackOk?: (input: string) => void, callbackCancel?: (input: string) => void): Dialog;
+            prompt(text: string, title?: string, callbackOk?: (input: string) => void, callbackCancel?: (input: string) => void): Dialog;
+            login(text: string, callbackOk?: (username: string, password: string) => void, callbackCancel?: (username: string, password: string) => void): Dialog;
+            login(text: string, title?: string, callbackOk?: (username: string, password: string) => void, callbackCancel?: (username: string, password: string) => void): Dialog;
+            password(text: string, callbackOk?: (password: string) => void, callbackCancel?: (password: string) => void): Dialog;
+            password(text: string, title?: string, callbackOk?: (password: string) => void, callbackCancel?: (password: string) => void): Dialog;
+            /** create Preloader Dialog and open it
+             * title - string. Optional. Preloader dialog title
+             * color - string. Optional. Preloader color. One of the default colors */
+            preloader(title?: string, color?: string): Dialog;
+            /** create Progress Dialog and open it
+             * title - string. Optional. Progress dialog title
+             * progress - number. Optional. Progressbar progress (from 0 to 100). If no number passed then it will have infinite progressbar.
+             * color - string. Optional. Progressbar color. One of default colors */
+            progress(title: string, progress: number, color: string): Dialog;
         };
         showPreloader(title: string): void;
         hidePreloader(): void;
