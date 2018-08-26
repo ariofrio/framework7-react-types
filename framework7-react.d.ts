@@ -246,10 +246,16 @@ declare module "framework7-react" {
             errorMessage?: string;
             info?: string;
             wrap?: boolean;
+
+            // onFocus?: ((event: React.FocusEvent<HTMLInputElement>) => void);
+            onFocus?: React.InputHTMLAttributes<HTMLInputElement>["onFocus"];
+            onBlur?: React.InputHTMLAttributes<HTMLInputElement>["onBlur"];
+            onInput?: React.InputHTMLAttributes<HTMLInputElement>["onInput"];
+            onChange?: React.InputHTMLAttributes<HTMLInputElement>["onChange"];
         }
         &
-        Event<"onFocus" | "onBlur" | "onInput" | "onChange" | "onTextareaResize" | "onInputNotEmpty" | "onInputEmpty" | "onInputClear">
-    > { }
+        Event<"onTextareaResize" | "onInputNotEmpty" | "onInputEmpty" | "onInputClear">
+        > { }
     export class F7Label extends _BasicComponent<Flag<"floating" | "inline">> { }
     export class F7Link extends _BasicComponent<
         {
