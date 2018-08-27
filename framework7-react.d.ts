@@ -8,7 +8,7 @@ declare namespace JSX {
 
 declare module "framework7-react" {
     import { Framework7Plugin } from "framework7";
-    import * as React from "react";
+    import * as React from "react";    
 
     export type strnum = string | number;
     export type strbool = string | boolean;
@@ -321,7 +321,8 @@ declare module "framework7-react" {
         OnClick & OnChange
     > { }
     export class F7ListItemRow extends _BasicComponent { }
-    export class F7ListItem extends _BasicComponent<
+    export type F7ListItemEvents = Event<"onClick" | "onChange" | "onSwipeoutOpen" | "onSwipeoutOpened" | "onSwipeoutClose" | "onSwipeoutClosed" | "onSwipeoutDelete" | "onSwipeoutDeleted" | "onSwipeout" | "onAccOpen" | "onAccOpened" | "onAccClose" | "onAccClosed">
+    export interface F7ListItemProps extends BasicProps, F7ListItemEvents, LinkRouterProps, LinkActionsProps
         {
             title?: strnum;
             text?: strnum;
@@ -337,14 +338,30 @@ declare module "framework7-react" {
             smartSelectParams?: object;
             name?: string;
             value?: strnum | strnum[];
+
+            noFastclick?: boolean
+            noFastClick?: boolean
+            mediaItem?: boolean
+            mediaList?: boolean
+            divider?: boolean
+            groupTitle?: boolean
+            swipeout?: boolean
+            swipeoutOpened?: boolean
+            sortable?: boolean
+            accordionItem?: boolean
+            accordionItemOpened?: boolean
+            smartSelect?: boolean
+            checkbox?: boolean
+            radio?: boolean
+            checked?: boolean
+            readonly?: boolean
+            required?: boolean
+            disabled?: boolean
+            itemInput?: boolean
+            itemInputWithInfo?: boolean
+            inlineLabel?: boolean
         }
-        &
-        Flag<"noFastclick" | "noFastClick" | "mediaItem" | "mediaList" | "divider" | "groupTitle" | "swipeout" | "swipeoutOpened" | "sortable" | "accordionItem" | "accordionItemOpened" | "smartSelect" | "checkbox" | "radio" | "checked" | "readonly" | "required" | "disabled" | "itemInput" | "itemInputWithInfo" | "inlineLabel">
-        &
-        Event<"onClick" | "onChange" | "onSwipeoutOpen" | "onSwipeoutOpened" | "onSwipeoutClose" | "onSwipeoutClosed" | "onSwipeoutDelete" | "onSwipeoutDeleted" | "onSwipeout" | "onAccOpen" | "onAccOpened" | "onAccClose" | "onAccClosed">
-        &
-        LinkRouterProps & LinkActionsProps
-    > { }
+    export class F7ListItem extends React.Component<F7ListItemProps> {}
     export class F7List extends _BasicComponent<
         {
             virtualListParams?: object;
