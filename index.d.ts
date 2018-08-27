@@ -2,3 +2,5 @@
 /// <reference path="./template7.d.ts" />
 /// <reference path="./framework7.d.ts" />
 /// <reference path="./framework7-react.d.ts" />
+
+import './framework7-react';
