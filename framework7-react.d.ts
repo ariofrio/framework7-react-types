@@ -189,6 +189,7 @@ declare module "framework7-react" {
             deleteable?: boolean;
             mediaBgColor?: string;
             mediaTextColor?: string;
+            outline?: boolean;
         }
         &
         Event<"onClick" | "onDeleteClick">
