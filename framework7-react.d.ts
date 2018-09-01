@@ -275,10 +275,11 @@ declare module "framework7-react" {
             badgeColor?: string[];
             iconBadge?: strnum;
             href?: strbool;
+
+            onClick?: React.AnchorHTMLAttributes<HTMLAnchorElement>["onClick"];
         } &
         Flag<"noLinkClass" | "noFastClick" | "noFastclick" | "tabLinkActive" | "tabbarLabel" | "iconOnly"> &
-        LinkIconProps & LinkRouterProps & LinkActionsProps &
-        OnClick
+        LinkIconProps & LinkRouterProps & LinkActionsProps
     > { }
     export class F7ListButton extends _BasicComponent<
         {
@@ -362,7 +363,9 @@ declare module "framework7-react" {
             itemInputWithInfo?: boolean
             inlineLabel?: boolean
         }
-    export class F7ListItem extends React.Component<F7ListItemProps> {}
+    export class F7ListItem extends React.Component<F7ListItemProps> {
+        f7SmartSelect: any
+    }
     export class F7List extends _BasicComponent<
         {
             virtualListParams?: object;
