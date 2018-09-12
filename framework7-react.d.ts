@@ -396,7 +396,7 @@ declare module "framework7-react" {
     export class F7Panel extends _BasicComponent<STUB> { }
     export class F7PhotoBrowser extends _BasicComponent<STUB> { }
     export class F7Popover extends _BasicComponent<{target?: string | object} & Flag<"opened"> & OpenCloseEvents> { }
-    export class F7Popup extends _BasicComponent<Flag<"tabletFullscreen" | "opened"> & OpenCloseEvents> { }
+    export class F7Popup extends _BasicComponent<Flag<"tabletFullscreen" | "opened"> & Event<"onPopupOpen" | "onPopupOpened" | "onPopupClose" | "onPopupClosed">> { }
     export class F7Preloader extends _BasicComponent<{size?: strnum}> { }
     export class F7Progressbar extends _BasicComponent<{progress?: number} & Flag<"infinite">> { }
     export class F7Radio extends _BasicComponent<STUB> { }
